@@ -18,12 +18,21 @@
     // this is an array of letters
     var letterArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-    // generates random number
-    var randomNumber = Math.floor(Math.random() * letterArray.length);
+    // // generates random number
+    // var randomNumber = Math.floor(Math.random() * letterArray.length);
 
-    //Apply random number to obtain letter in letterArrray
-    var computerLetter = letterArray[randomNumber];
-    console.log(computerLetter);
+    // //Apply random number to obtain letter in letterArrray
+    // var computerLetter = letterArray[randomNumber];
+    // console.log(computerLetter);
+
+    // defining a function to get a random letter
+	var getRandomLetter = function () {
+		randomLetter = letterArray[Math.floor(Math.random()*letterArray.length)]
+		console.log(randomLetter);
+		return randomLetter
+	}	
+
+    var computerLetter = getRandomLetter();
 
     // setting up default winscore
     var wins = 0;
@@ -37,11 +46,15 @@
     var guessesText = document.getElementById("guessesLeft");
     var yourGuessesText = document.getElementById("yourGuesses");
 
-    // setting up winning count function
-    function winningCount() {
-        document.getElementById("text-goes-here").innerHTML = "User rock loses to computer paper!";
-    }
+    function restart() {
+        guessesLeft = 9;
+        guessesText.innerHTML = "Guesses Left: " + guessesLeft;
+        yourGuesses = [];
+        yourGuessesText.innerHTML = "Your guesses so far: " + yourGuesses;
 
+        computerLetter = getRandomLetter();
+
+    }
     // This function is run whenever the user presses a key.
     document.onkeyup = function (event) {
 
@@ -53,6 +66,7 @@
             wins++
             winsText.innerHTML = "Wins: " + wins;
             console.log(wins);
+            restart();
         }
 
         // this will be the losing function
@@ -61,20 +75,7 @@
             lossesText.innerHTML = "Losses " + losses;
             restart();
         }
-        function restart() {
-            guessesLeft = 9;
-            guessesText.innerHTML = "Guesses Left: " + guessesLeft;
-            yourGuesses = [];
-            yourGuessesText.innerHTML = "Your guesses so far: " + yourGuesses;
 
-            // generates random number
-            var randomNumber = Math.floor(Math.random() * letterArray.length);
-
-            //Apply random number to obtain letter in letterArrray
-            var computerLetter = letterArray[randomNumber];
-            console.log("new letter: " + computerLetter);
-
-        }
 
         // this function keeps track of the guesses and "pushes" to the guessesLeft div
         function userGuessesSoFar(userGuess) {
