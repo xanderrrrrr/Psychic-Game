@@ -12,7 +12,7 @@
     <div id="wins">Wins: </div>
     <div id="losses">Losses: </div>
     <div id="guessesLeft">9</div>
-    <div id="yourGuesses"></div>
+    <div id="yourGuesses">Your guesses so far: </div>
 </body>
 <script>
     // this is an array of letters
@@ -29,11 +29,13 @@
     var wins = 0;
     var losses = 0;
     var guessesLeft = 9;
+    var yourGuesses = [];
 
     // Create variables that hold references to the places in the HTML where we want to display things.
     var winsText = document.getElementById("wins");
     var lossesText = document.getElementById("losses");
     var guessesText = document.getElementById("guessesLeft");
+    var yourGuessesText = document.getElementById("yourGuesses");
 
     // setting up winning count function
     function winningCount() {
@@ -60,8 +62,14 @@
             guessesText.innerHTML = guessesLeft--;
         }
 
+        function userGuessesSoFar() {
+            yourGuesses.push(userGuess)
+            yourGuessesText.innerHTML = "Your guesses so far: " + yourGuesses;
+        }
+
         if (userGuess === computerLetter) {
             winning(userGuess);
+            userGuessesSoFar(userGuess);
         }
         else {
             losing(userGuess);
