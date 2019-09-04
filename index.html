@@ -10,7 +10,7 @@
     <h1>The Psychic Game</h1>
     <div>Guess what letter I'm thinkin of</div>
     <div id="wins">Wins: </div>
-    <div id="losses"></div>
+    <div id="losses">Losses: </div>
     <div id="guessesLeft"></div>
     <div id="yourGuesses"></div>
 </body>
@@ -43,17 +43,25 @@
 
         // Determines which key was pressed.
         var userGuess = event.key;
+
+        // this function will be ran when winning condition and adds running win count
         function winning(userGuess) {
             wins++
             winsText.innerHTML = "Wins: " + wins;
             console.log(wins);
         }
 
+        // this function will be ran when losing condition and adds running losing count
+        function losing(userGuess) {
+            losses++;
+            lossesText.innerHTML = "Losses: " + losses;
+        }
+
         if (userGuess === computerLetter) {
             winning(userGuess);
         }
         else {
-            console.log("youlose");
+            losing(userGuess);
         }
 
 
