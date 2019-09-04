@@ -11,7 +11,7 @@
     <div>Guess what letter I'm thinkin of</div>
     <div id="wins">Wins: </div>
     <div id="losses">Losses: </div>
-    <div id="guessesLeft">9</div>
+    <div id="guessesLeft">Guesses Left: 9</div>
     <div id="yourGuesses">Your guesses so far: </div>
 </body>
 <script>
@@ -63,7 +63,7 @@
         }
         function restart() {
             guessesLeft = 9;
-            guessesText.innerHTML = guessesLeft;
+            guessesText.innerHTML = "Guesses Left: " + guessesLeft;
             yourGuesses = [];
             // generates random number
             var randomNumber = Math.floor(Math.random() * letterArray.length);
@@ -80,7 +80,7 @@
             yourGuesses.push(userGuess)
             yourGuessesText.innerHTML = "Your guesses so far: " + yourGuesses;
             guessesLeft--;
-            guessesText.innerHTML = guessesLeft;
+            guessesText.innerHTML = "Guesses Left: " + guessesLeft;
             if (guessesLeft === 0) {
                 losing()
 
