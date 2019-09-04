@@ -59,6 +59,19 @@
         function losing() {
             losses++;
             lossesText.innerHTML = "Losses " + losses;
+            restart();
+        }
+        function restart() {
+            guessesLeft = 9;
+            guessesText.innerHTML = guessesLeft;
+            yourGuesses = [];
+            // generates random number
+            var randomNumber = Math.floor(Math.random() * letterArray.length);
+
+            //Apply random number to obtain letter in letterArrray
+            var computerLetter = letterArray[randomNumber];
+            console.log("new letter: " + computerLetter);
+
         }
 
         // this function keeps track of the guesses and "pushes" to the guessesLeft div
