@@ -11,7 +11,7 @@
     <div>Guess what letter I'm thinkin of</div>
     <div id="wins">Wins: </div>
     <div id="losses">Losses: </div>
-    <div id="guessesLeft"></div>
+    <div id="guessesLeft">9</div>
     <div id="yourGuesses"></div>
 </body>
 <script>
@@ -28,10 +28,12 @@
     // setting up default winscore
     var wins = 0;
     var losses = 0;
+    var guessesLeft = 9;
 
     // Create variables that hold references to the places in the HTML where we want to display things.
     var winsText = document.getElementById("wins");
     var lossesText = document.getElementById("losses");
+    var guessesText = document.getElementById("guessesLeft");
 
     // setting up winning count function
     function winningCount() {
@@ -55,6 +57,7 @@
         function losing(userGuess) {
             losses++;
             lossesText.innerHTML = "Losses: " + losses;
+            guessesText.innerHTML = guessesLeft--;
         }
 
         if (userGuess === computerLetter) {
