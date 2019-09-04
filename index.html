@@ -1,17 +1,32 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Psychic Game</title>
-        <meta charset="UTF-8">
-    </head>
-    <body>
-        <h1>The Psychic Game</h1>
-        <div>Guess what letter I'm thinkin of</div>
-        <div id="wins"></div>
-        <div id="losses"></div>
-        <div id="guessesLeft"></div>
-        <div id="yourGuesses"></div>
-    </body>
+
+<head>
+    <title>Psychic Game</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <h1>The Psychic Game</h1>
+    <div>Guess what letter I'm thinkin of</div>
+    <div id="wins"></div>
+    <div id="losses"></div>
+    <div id="guessesLeft"></div>
+    <div id="yourGuesses"></div>
+</body>
+<script>
+    // this is an array of letters
+    var letterArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+    // generates random number
+    var randomNumber = Math.floor(Math.random() * letterArray.length);
+
+    //Apply random number to obtain letter in letterArrray
+    var computerLetter = letterArray[randomNumber];
+    console.log(computerLetter)
+
+</script>
+
 </html>
 
 <!-- ## Option One: Psychic Game (Basic)
