@@ -55,24 +55,20 @@
             console.log(wins);
         }
 
-        // this function will be ran when losing condition and adds running losing count
-        function losing(userGuess) {
-            losses++;
-            lossesText.innerHTML = "Losses: " + losses;
-            guessesText.innerHTML = guessesLeft--;
-        }
 
-        function userGuessesSoFar() {
+        // this function keeps track of the guesses and "pushes" to the guessesLeft div
+        function userGuessesSoFar(userGuess) {
             yourGuesses.push(userGuess)
             yourGuessesText.innerHTML = "Your guesses so far: " + yourGuesses;
+            guessesLeft--;
+            guessesText.innerHTML = guessesLeft;
         }
 
         if (userGuess === computerLetter) {
             winning(userGuess);
-            userGuessesSoFar(userGuess);
         }
         else {
-            losing(userGuess);
+            userGuessesSoFar(userGuess);
         }
 
 
