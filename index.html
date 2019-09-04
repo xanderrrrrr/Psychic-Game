@@ -55,13 +55,23 @@
             console.log(wins);
         }
 
+        // this will be the losing function
+        function losing() {
+            losses++;
+            lossesText.innerHTML = "Losses " + losses;
+        }
 
         // this function keeps track of the guesses and "pushes" to the guessesLeft div
         function userGuessesSoFar(userGuess) {
+            // I'll probably have to put these into an if statement saying if the user guess isn't already in array
             yourGuesses.push(userGuess)
             yourGuessesText.innerHTML = "Your guesses so far: " + yourGuesses;
             guessesLeft--;
             guessesText.innerHTML = guessesLeft;
+            if (guessesLeft === 0) {
+                losing()
+
+            }
         }
 
         if (userGuess === computerLetter) {
