@@ -25,31 +25,34 @@
 		return randomLetter
 	}	
 
+    // initially gets a random letter, variable will be overriden by the reset function upon win or loss
     var computerLetter = getRandomLetter();
 
-    // setting up default winscore
+    // setting up defaults
     var wins = 0;
     var losses = 0;
     var guessesLeft = 9;
     var yourGuesses = [];
 
-    // Create variables that hold references to the places in the HTML where we want to display things.
+    // Create variables that hold references to the places in the HTML where we want to display 
+    // things so I can manip in later functions
     var winsText = document.getElementById("wins");
     var lossesText = document.getElementById("losses");
     var guessesText = document.getElementById("guessesLeft");
     var yourGuessesText = document.getElementById("yourGuesses");
 
-    // this is my restart function that immediately restates eveything as default and picks new computer letter
+    // this is my restart function that immediately restates eveything as 'default' and picks 
+    // new computer letter with the global math/getRandomLetter function
     function restart() {
         guessesLeft = 9;
         guessesText.innerHTML = "Guesses Left: " + guessesLeft;
         yourGuesses = [];
         yourGuessesText.innerHTML = "Your guesses so far: " + yourGuesses;
-
+        // this one picks a new random letter from the function declared globally because 
+        // I COULDN'T GET IT OTHERWISE FFS
         computerLetter = getRandomLetter();
-
     }
-    // This function is run whenever the user presses a key.
+    // This function is ran whenever the user presses a key.
     document.onkeyup = function (event) {
 
         // Determines which key was pressed.
@@ -77,9 +80,9 @@
             yourGuessesText.innerHTML = "Your guesses so far: " + yourGuesses;
             guessesLeft--;
             guessesText.innerHTML = "Guesses Left: " + guessesLeft;
+            // this invokes the losing function if no guesses left
             if (guessesLeft === 0) {
                 losing()
-
             }
         }
 
