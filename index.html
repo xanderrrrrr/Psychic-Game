@@ -9,7 +9,7 @@
 <body>
     <h1>The Psychic Game</h1>
     <div>Guess what letter I'm thinkin of</div>
-    <div id="wins"></div>
+    <div id="wins">Wins: </div>
     <div id="losses"></div>
     <div id="guessesLeft"></div>
     <div id="yourGuesses"></div>
@@ -45,7 +45,7 @@
         var userGuess = event.key;
         function winning(userGuess) {
             wins++
-            winsText.textContent = "wins: " + wins;
+            winsText.innerHTML = "Wins: " + wins;
             console.log(wins);
         }
 
