@@ -31,11 +31,12 @@
         // Determines which key was pressed.
         var userGuess = event.key;
 
-        // Alerts the key the user pressed (userGuess).
-        alert("User guess: " + userGuess);
-
-        // Alerts the Computer's guess.
-        alert("Computer guess: " + computerLetter);
+        if (userGuess === computerLetter) {
+            console.log("youwin");
+        }
+        else {
+            console.log("youlose");
+        }
 
     };
 
