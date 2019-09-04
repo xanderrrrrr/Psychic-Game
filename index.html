@@ -18,14 +18,7 @@
     // this is an array of letters
     var letterArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-    // // generates random number
-    // var randomNumber = Math.floor(Math.random() * letterArray.length);
-
-    // //Apply random number to obtain letter in letterArrray
-    // var computerLetter = letterArray[randomNumber];
-    // console.log(computerLetter);
-
-    // defining a function to get a random letter
+    // defining a function to get a random letter because I couldn't get it to work otherwise
 	var getRandomLetter = function () {
 		randomLetter = letterArray[Math.floor(Math.random()*letterArray.length)]
 		console.log(randomLetter);
@@ -46,6 +39,7 @@
     var guessesText = document.getElementById("guessesLeft");
     var yourGuessesText = document.getElementById("yourGuesses");
 
+    // this is my restart function that immediately restates eveything as default and picks new computer letter
     function restart() {
         guessesLeft = 9;
         guessesText.innerHTML = "Guesses Left: " + guessesLeft;
@@ -76,7 +70,6 @@
             restart();
         }
 
-
         // this function keeps track of the guesses and "pushes" to the guessesLeft div
         function userGuessesSoFar(userGuess) {
             // I'll probably have to put these into an if statement saying if the user guess isn't already in array
@@ -96,8 +89,6 @@
         else {
             userGuessesSoFar(userGuess);
         }
-
-
     };
 
 </script>
