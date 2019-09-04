@@ -25,18 +25,25 @@
     var computerLetter = letterArray[randomNumber];
     console.log(computerLetter);
 
+    var winScore = 0;
+
     // This function is run whenever the user presses a key.
     document.onkeyup = function (event) {
 
         // Determines which key was pressed.
         var userGuess = event.key;
+        function winning(userGuess) {
+            winScore++
+            console.log(winScore)
+        }
 
         if (userGuess === computerLetter) {
-            console.log("youwin");
+            winning(userGuess);
         }
         else {
             console.log("youlose");
         }
+
 
     };
 
